@@ -35,7 +35,11 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (user) {
-    res.status(201).json({ _id: user.id, name: user.name, email: user.email });
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+    });
   } else {
     res.status(400);
     throw new Error("Invalid user data");
@@ -63,7 +67,21 @@ const getUser = asyncHandler(async (req, res) => {
 // @route /api/users/login
 // @access Private
 const loginUser = asyncHandler(async (req, res) => {
-  res.json({ message: "logged in" });
+  const { email, password } = req.body;
+  const user = await User.findOne({ email });
+
+  // check for user email
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid credentials");
+  }
+  // res.json({ message: "logged in" });
 });
 
 // @desc Get users
