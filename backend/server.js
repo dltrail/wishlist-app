@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/wishlist", require("./routes/wishlistRoute.js"));
+app.use("/api/users", require("./routes/userRoute.js"));
 
 app.use(errorHandler);
 
