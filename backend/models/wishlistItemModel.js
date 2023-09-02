@@ -12,7 +12,7 @@ const wishlistItemSchema = mongoose.Schema(
   },
   {
     // cauto create updated at and created at timestamps
-    timeStamps: true,
+    timestamps: true,
   }
 );
 
