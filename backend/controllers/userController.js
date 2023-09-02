@@ -5,7 +5,7 @@ const User = require("../models/userModel");
 
 // @desc register (add) a new user
 // @route /api/users/register
-// @access Private
+// @access Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -48,11 +48,15 @@ const registerUser = asyncHandler(async (req, res) => {
   //
 });
 
+const getMe = asyncHandler(async (req, res) => {
+  const { _id, name, email } = await User.findById(req.user.id);
+  res.status(200).json({ _id: _id, name, email });
+});
+
 // @desc Get individual user data
 // @route /api/users/me:id
 // @access Private
 const getUser = asyncHandler(async (req, res) => {
-  // res.json({ message: "yes!!!" });
   const thisUser = await User.findById(req.params.id);
   if (!thisUser) {
     res.status(400);
@@ -66,7 +70,7 @@ const getUser = asyncHandler(async (req, res) => {
 
 // @desc login user
 // @route /api/users/login
-// @access Private
+// @access Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -107,4 +111,5 @@ module.exports = {
   getUsers,
   registerUser,
   loginUser,
+  getMe,
 };
