@@ -1,11 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const WishlistItem = require("../models/wishlistItemModel");
+const User = require("../models/userModel");
 
 // @desc Get wishlist items
 // @route /api/wishlist
 // @access Private
 const getWishlist = async (req, res) => {
-  const WishlistItems = await WishlistItem.find();
+  const WishlistItems = await WishlistItem.find({ user: req.user.id });
   res.status(200).json(WishlistItems);
 };
 
@@ -22,6 +23,7 @@ const addWishlistItem = asyncHandler(async (req, res) => {
 
   const singleWishlistItem = await WishlistItem.create({
     text: req.body.text,
+    user: req.user.id,
   });
 
   res.status(200).json(singleWishlistItem);
@@ -35,6 +37,21 @@ const editWishlistItem = asyncHandler(async (req, res) => {
   if (!singleWishlistItem) {
     res.status(400);
     throw new Error("Item not found");
+  }
+
+  // get the user
+
+  const user = await User.findById(req.user.id);
+  //check for user
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // ensure the logged in user matches the wishlist owner
+  if (WishlistItem.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorised");
   }
 
   const updatedsingleWishlistItem = await WishlistItem.findByIdAndUpdate(
@@ -56,6 +73,20 @@ const deleteWishlistItem = asyncHandler(async (req, res) => {
   if (!singleWishlistItem) {
     res.status(400);
     throw new Error("Item not found");
+  }
+  // get the user
+
+  const user = await User.findById(req.user.id);
+  //check for user
+  if (!user) {
+    res.status(401);
+    throw new Error("User not found");
+  }
+
+  // ensure the logged in user matches the wishlist owner
+  if (singleWishlistItem.user.toString() !== user.id) {
+    res.status(401);
+    throw new Error("User not authorised");
   }
   await WishlistItem.deleteOne();
 
