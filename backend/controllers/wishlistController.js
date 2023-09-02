@@ -1,12 +1,12 @@
 const asyncHandler = require("express-async-handler");
+const WishlistItem = require("../models/wishlistItemModel");
 
 // @desc Get wishlist items
 // @route /api/wishlist
 // @access Private
 const getWishlist = async (req, res) => {
-  res.status(200).json({
-    message: "Get wishlist item",
-  });
+  const WishlistItems = await WishlistItem.find();
+  res.status(200).json(WishlistItems);
 };
 
 // @desc Add wishlist item
@@ -19,9 +19,12 @@ const addWishlistItem = asyncHandler(async (req, res) => {
     // Express error handler
     throw new Error("Please add in a text field");
   }
-  res.status(200).json({
-    message: "Add wishlist item",
+
+  const wishlistItem = await WishlistItem.create({
+    text: req.body.text,
   });
+
+  res.status(200).json(wishlistItem);
 });
 
 // @desc Edit wishlist item
