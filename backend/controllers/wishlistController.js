@@ -1,12 +1,12 @@
 const asyncHandler = require("express-async-handler");
+const WishlistItem = require("../models/wishlistItemModel");
 
 // @desc Get wishlist items
 // @route /api/wishlist
 // @access Private
 const getWishlist = async (req, res) => {
-  res.status(200).json({
-    message: "Get wishlist item",
-  });
+  const WishlistItems = await WishlistItem.find();
+  res.status(200).json(WishlistItems);
 };
 
 // @desc Add wishlist item
@@ -19,27 +19,47 @@ const addWishlistItem = asyncHandler(async (req, res) => {
     // Express error handler
     throw new Error("Please add in a text field");
   }
-  res.status(200).json({
-    message: "Add wishlist item",
+
+  const singleWishlistItem = await WishlistItem.create({
+    text: req.body.text,
   });
+
+  res.status(200).json(singleWishlistItem);
 });
 
 // @desc Edit wishlist item
 // @route /api/wishlist/:id
 // @access Private
 const editWishlistItem = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    message: `Edit wishlist item ${req.params.id}`,
-  });
+  const singleWishlistItem = await WishlistItem.findById(req.params.id);
+  if (!singleWishlistItem) {
+    res.status(400);
+    throw new Error("Item not found");
+  }
+
+  const updatedsingleWishlistItem = await WishlistItem.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    }
+  );
+  res.status(200).json(updatedsingleWishlistItem);
 });
 
 // @desc Delete wishlist item
 // @route /api/wishlist/:id
 // @access Private
 const deleteWishlistItem = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    message: `Delete wishlist item ${req.params.id}`,
-  });
+  const singleWishlistItem = await WishlistItem.findById(req.params.id);
+
+  if (!singleWishlistItem) {
+    res.status(400);
+    throw new Error("Item not found");
+  }
+  await WishlistItem.deleteOne();
+
+  res.status(200).json({ id: req.params.id });
 });
 
 module.exports = {
