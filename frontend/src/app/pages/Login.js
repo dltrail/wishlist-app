@@ -27,8 +27,8 @@ function Login() {
   return (
     <div className="register">
       <section className="heading">
-        <h1>Register</h1>
-        <p>Please create a account</p>
+        <h1>Login</h1>
+        <p>Login into your account</p>
       </section>
       <section>
         <form className={formStyles.form} onSubmit={onSubmit}>
