@@ -4,7 +4,7 @@ import formStyles from "./form.module.css";
 function Login() {
   const [formData, setFormData] = useState({
     email: "",
-    passwaord: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -17,6 +17,11 @@ function Login() {
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    setFormData((prev) => ({
+      ...prev,
+      email: "",
+      password: "",
+    }));
   };
 
   return (
@@ -46,6 +51,8 @@ function Login() {
             placeholder="Enter your password"
             onChange={onChange}
           />
+
+          <input type="submit" onClick={onSubmit} />
         </form>
       </section>
     </div>

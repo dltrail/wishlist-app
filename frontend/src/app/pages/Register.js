@@ -5,7 +5,7 @@ function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    passwaord: "",
+    password: "",
     password2: "",
   });
 
