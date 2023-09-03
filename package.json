@@ -1,7 +1,7 @@
 {
-  "name": "mern-tutorial",
+  "name": "wishlist-app",
   "version": "1.0.0",
-  "description": "Goalsetter app",
+  "description": "Wishlist app",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
