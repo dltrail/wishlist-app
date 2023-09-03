@@ -1,10 +1,24 @@
-import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Dashboard from "./app/pages/Dashboard";
+import Login from "./app/pages/Login";
+import Register from "./app/pages/Register";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div>
-      <h1>Dawn's App</h1>
-    </div>
+    <>
+      <Router>
+        <div className="container">
+          <h1>Dawn's App</h1>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   );
 }
 
