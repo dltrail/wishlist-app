@@ -17,6 +17,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/wishlist", require("./routes/wishlistRoutes.js"));
 app.use("/api/users", require("./routes/userRoutes.js"));
 
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "../frontend/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
+
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`server started on ${PORT}`));
