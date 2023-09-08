@@ -14,15 +14,15 @@ const getWishlist = async (req, res) => {
 // @route /api/wishlist
 // @access Private
 const addWishlistItem = asyncHandler(async (req, res) => {
-  console.log(req.body);
-  if (!req.body.text) {
-    res.status(400);
-    // Express error handler
-    throw new Error("Please add in a text field");
-  }
+  const { text, url } = req.body;
 
+  if (!text) {
+    res.status(400);
+    throw new Error("Please enter all fields");
+  }
   const singleWishlistItem = await WishlistItem.create({
-    text: req.body.text,
+    text,
+    url,
     user: req.user.id,
   });
 
