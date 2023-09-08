@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import WishlistForm from "../../components/WishlistForm/WishlistForm";
 import {
   getItems,
-  deleteWishlistItem,
+  //deleteWishlistItem,
   reset,
 } from "../../features/wishlistItem/wishlistItemSlice";
 import Spinner from "../../components/Spinner/Spinner";
@@ -31,7 +31,7 @@ function Dashboard() {
     return () => {
       dispatch(reset());
     };
-  }, [user, navigate]);
+  }, [user, navigate, isError, message]);
 
   if (isLoading) {
     <Spinner />;

@@ -28,8 +28,12 @@ function Login() {
     if (isSuccess || user) {
       navigate("/");
     }
+    if (isLoading) {
+      isLoading && <Spinner />;
+    }
+
     dispatch(reset());
-  }, [user, message, isError, isSuccess, navigate, dispatch]);
+  }, [user, message, isError, isSuccess, isLoading, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prev) => ({

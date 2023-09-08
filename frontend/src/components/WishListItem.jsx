@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  deleteWishlistItem,
-  editWishlistItem,
-} from "../features/wishlistItem/wishlistItemSlice";
+import { deleteWishlistItem } from "../features/wishlistItem/wishlistItemSlice";
 
 function WishListItem({ item }) {
   const dispatch = useDispatch();

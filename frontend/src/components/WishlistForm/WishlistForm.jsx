@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createWishlistItem } from "../../features/wishlistItem/wishlistItemSlice";
 
 function WishlistForm() {
