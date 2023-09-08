@@ -20,7 +20,7 @@ function Header() {
         {user ? (
           <>
             <li>
-              <Link to="/me">Dashboard</Link>
+              <Link to="/">Dashboard</Link>
             </li>
             <li>
               <button className="btn" onClick={onLogout}>

@@ -17,8 +17,7 @@ function App() {
           <h1>Dawn's App</h1>
           <Header />
           <Routes>
-            <Route path={"/"} element={<div>HOME</div>} />
-            <Route path={"/me"} element={<Dashboard />} />
+            <Route path={"/"} element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>
