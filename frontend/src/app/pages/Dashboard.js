@@ -50,7 +50,7 @@ function Dashboard() {
         {wishlistItems.length > 0 ? (
           <div>
             {wishlistItems.map((item) => (
-              <WishListItem item={item} />
+              <WishListItem key={item._id} item={item} />
             ))}
           </div>
         ) : (
