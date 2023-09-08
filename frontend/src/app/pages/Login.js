@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import formStyles from "./form.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { login, reset } from "../../features/auth/authSlice";
+import Spinner from "../../components/Spinner/Spinner";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,19 +14,39 @@ function Login() {
 
   const { email, password } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess || user) {
+      navigate("/");
+    }
+    dispatch(reset());
+  }, [user, message, isError, isSuccess, navigate, dispatch]);
+
   const onChange = (e) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    setFormData((prev) => ({
-      ...prev,
-      email: "",
-      password: "",
-    }));
+
+    const userData = {
+      email,
+      password,
+    };
+
+    dispatch(login(userData));
   };
 
   return (
