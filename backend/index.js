@@ -89,7 +89,7 @@ module.exports = app;
 //   "routes": [
 //     {
 //       "src": "/(.*)",
-//       "dest": "server.js"
+//       "dest": "index.js"
 //     }
 //   ]
 // }
