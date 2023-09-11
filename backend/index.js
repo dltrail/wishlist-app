@@ -13,7 +13,13 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://wishlist-app-ten.vercel.app"],
+    methods: ["POST", "GET", "PUT"],
+    credentials: true,
+  })
+);
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/wishlist", require("./routes/wishlistRoutes.js"));
