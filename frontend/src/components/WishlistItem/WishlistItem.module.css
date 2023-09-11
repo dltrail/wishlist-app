@@ -1,0 +1,43 @@
+.wishlistItem {
+  border: 1px solid #cccbcb;
+  display: flex;
+  flex-direction: column;
+  width: 289px;
+  position: relative;
+  padding: 30px 20px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.url {
+  font-size: 10px;
+  font-weight: bold;
+  color: #888;
+  & > a {
+    text-transform: unset;
+    color: black;
+    font-weight: normal;
+    text-underline-offset: 0.2em;
+    text-transform: lowercase;
+  }
+}
+
+.btn {
+  position: absolute;
+  background-color: transparent;
+  background-color: red;
+  font-weight: bold;
+  border: 0;
+  top: 4px;
+  right: 4px;
+  color: white;
+  font-size: 14px;
+}
+
+.datePost {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+
+  font-size: 10px;
+}

@@ -1,0 +1,16 @@
+.container {
+    margin: 0 20px;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        margin: 0 50px;
+    }
+}
+
+@media screen and (min-width: 10024px) {
+    .container {
+        margin: 0 80px;
+    }
+}
