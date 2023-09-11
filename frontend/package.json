@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "http://localhost:4000",
+  "proxy": "https://wishlist-app-backend-q64vlczjv-dltrail.vercel.app/api",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
