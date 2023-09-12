@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["https://wishlist-app-ten.vercel.app"],
-    methods: ["POST", "GET", "PUT"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );
