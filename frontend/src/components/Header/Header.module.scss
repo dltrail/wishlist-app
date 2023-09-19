@@ -19,3 +19,15 @@ img {
 li {
     list-style: none;
 }
+
+.header {
+    display: inline-block;
+    font-size: 80px;
+    line-height: 0.9;
+    padding: 20px;
+    font-family: 'Caveat', cursive;
+    background: hsl(var(--accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

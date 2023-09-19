@@ -17,7 +17,7 @@ function Header() {
   return (
     <header className="header">
       <div className={styles.logo}>
-        <img src="/assets/Header.svg" />
+        <h1 className={styles.header}>WishPad</h1>{" "}
       </div>
       <ul className={styles.navigation}>
         {user ? (
