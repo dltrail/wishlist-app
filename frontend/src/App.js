@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import styles from "./App.module.scss";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 
 function App() {
   const { user } = useSelector((state) => state.auth);
@@ -24,6 +25,7 @@ function App() {
         </div>
       </Router>
       <ToastContainer />
+      <ThemeSwitcher />
     </>
   );
 }
