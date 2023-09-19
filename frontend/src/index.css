@@ -1,10 +1,4 @@
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
-  box-sizing: border-box;
-  margin: 0;
-}
 :root {
   --_hue: 245;
   --_size: 1.8rem;
@@ -70,6 +64,10 @@ body {
 body {
   background-color: hsl(var(--bg));
   color: hsl(var(--txt));
+    font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 hr {
