@@ -37,7 +37,7 @@ function ThemeSwitcher() {
       {isColorPicking ? (
         <>
           <button
-            className={styles.close}
+            className="btn"
             aria-label="close colo picking mode"
             onClick={() => setIsColorPicking(false)}
           >
@@ -58,7 +58,7 @@ function ThemeSwitcher() {
           {/* heroicons! */}
           <button
             onClick={handleThemeBtnClick}
-            className={styles.btn}
+            className="btn"
             aria-label={`change string to ${theme === "light"}  mode`}
             role="switch"
             aria-checked="true"
@@ -66,7 +66,7 @@ function ThemeSwitcher() {
             {theme === "light" ? "moon" : "sun"}
           </button>{" "}
           <button
-            className={styles.btn}
+            className="btn"
             aria-label={"Enable color picking mode"}
             role="switch"
             onClick={() => setIsColorPicking(true)}

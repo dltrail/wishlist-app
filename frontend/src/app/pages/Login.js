@@ -77,7 +77,7 @@ function Login() {
             onChange={onChange}
           />
 
-          <input type="submit" onClick={onSubmit} />
+          <input className="btn" type="submit" onClick={onSubmit} />
         </form>
       </section>
     </div>
