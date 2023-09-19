@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, reset } from "../../features/auth/authSlice";
+import styles from "./Header.module.scss";
 
 function Header() {
   const navigate = useNavigate();
@@ -15,13 +16,15 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo">Wishlish</div>
-      <ul className="navigation">
+      <div className={styles.logo}>
+        <img src="/assets/Header.svg" />
+      </div>
+      <ul className={styles.navigation}>
         {user ? (
           <>
-            <li>
+            {/* <li>
               <Link to="/">Dashboard</Link>
-            </li>
+            </li> */}
             <li>
               <button className="btn" onClick={onLogout}>
                 Logout

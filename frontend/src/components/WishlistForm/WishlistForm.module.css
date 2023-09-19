@@ -1,0 +1,28 @@
+.form {
+  width: 100%;
+  background-color: #c8e3f6;
+  padding: 20px;
+  box-sizing: border-box;
+  min-width: 300px;
+  position: absolute;
+}
+
+@media screen and (min-width: 540px) {
+  .form {
+    width: 60%;
+    max-width: 672px;
+    position: relative;
+  }
+}
+
+.form input {
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 20px;
+  background-color: #c8e3f6;
+  border: 1px solid #c8e3f6;
+  color: #888;
+  text-transform: uppercase;
+}
