@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import formStyles from "./form.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner/Spinner";
+import formStyles from "./form.module.css";
+import styles from "./pages.module.css";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -50,34 +51,32 @@ function Login() {
   };
 
   return (
-    <div className="register">
+    <div className={styles.formPage}>
       <section className="heading">
         <h1>Login</h1>
-        <p>Login into your account</p>
       </section>
-      <section>
+      <section className={formStyles.formContainer}>
         <form className={formStyles.form} onSubmit={onSubmit}>
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="email"
             name="email"
             value={email}
-            placeholder="Enter your email address"
+            placeholder="Email address *"
             onChange={onChange}
           />
 
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="password"
             name="password"
             value={password}
-            placeholder="Enter your password"
+            placeholder="Password *"
             onChange={onChange}
           />
-
-          <input className="btn" type="submit" onClick={onSubmit} />
+          <input className={formStyles.btn} type="submit" onClick={onSubmit} />
         </form>
       </section>
     </div>

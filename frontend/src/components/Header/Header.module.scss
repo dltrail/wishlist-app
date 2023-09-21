@@ -8,26 +8,65 @@ img {
     margin-top: 20px;
 }
 
-.navigation {
-    position: absolute;
-    top: 0;
-    right: 20px;
-    display: flex;
-    gap: 20px;
-}
+
+
 
 li {
     list-style: none;
 }
 
 .header {
-    display: inline-block;
-    font-size: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     line-height: 0.9;
     padding: 20px;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+
+    }
+}
+
+
+.header h1 {
+    font-size: 60px;
     font-family: 'Caveat', cursive;
     background: hsl(var(--accent));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media screen and (min-width: 768px) {
+        font-size: 6vw;
+    }
+}
+
+.header .navigation {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        right: 20px;
+        display: flex;
+        gap: 20px;
+        padding-top: 20px;
+
+    }
+
+    li a {
+        color: hsl(var(--accent));
+
+        text-decoration: none;
+
+        &:hover {
+            color: var(--_offWhite);
+
+        }
+    }
 }

@@ -1,0 +1,8 @@
+.formPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 540px;
+  margin: auto;
+}
