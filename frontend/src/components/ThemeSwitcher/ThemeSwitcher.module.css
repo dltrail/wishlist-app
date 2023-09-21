@@ -13,6 +13,8 @@
 .btns {
   display: flex;
   gap: 1em;
+  left: -2em;
+  position: relative;
 }
 .picker:focus {
   outline: none;

@@ -37,7 +37,7 @@ function ThemeSwitcher() {
       {isColorPicking ? (
         <>
           <button
-            className="btn"
+            className={styles.btn}
             aria-label="close colo picking mode"
             onClick={() => setIsColorPicking(false)}
           >
