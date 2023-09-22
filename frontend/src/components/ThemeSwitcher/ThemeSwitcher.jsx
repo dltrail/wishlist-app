@@ -6,6 +6,7 @@ function ThemeSwitcher() {
   const [hue, setHue] = useLocalStorage("react-todo.color", "240");
 
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   const [theme, setTheme] = useLocalStorage(
     "react-todo.theme",
     defaultDark ? "dark" : "light"

@@ -56,6 +56,7 @@ function Login() {
         <h1>Login</h1>
       </section>
       <section className={formStyles.formContainer}>
+        <p>Sign in to WishPad</p>
         <form className={formStyles.form} onSubmit={onSubmit}>
           <input
             type="text"
@@ -76,7 +77,7 @@ function Login() {
             placeholder="Password *"
             onChange={onChange}
           />
-          <input className={formStyles.btn} type="submit" onClick={onSubmit} />
+          <input className={formStyles.btn} type="submit" />
         </form>
       </section>
     </div>

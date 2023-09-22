@@ -6,6 +6,7 @@
   --_tspeed_slow: 300ms;
   --_ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
   --_offWhite: #cccbcb;
+  --_darkGray: #4d4c4c;
 
   /* Light Mode */
   --bg--light: var(--_hue) 30% 94%;
@@ -96,7 +97,7 @@ hr {
   transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish),
     background-color var(--_tspeed_fast) var(--_ttype_squish);
   &:hover {
-    background-color: var(--_offWhite);
+    background-color: white;
     color: hsl(var(--accent));
   }
 }

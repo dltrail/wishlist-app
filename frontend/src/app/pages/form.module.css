@@ -18,8 +18,9 @@ form {
   margin-top: 10px;
   letter-spacing: 1px;
   &:hover {
-    background-color: var(--_offWhite);
+    background-color: white;
     color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent));
   }
 }
 

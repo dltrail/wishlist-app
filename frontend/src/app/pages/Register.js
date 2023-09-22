@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import formStyles from "./form.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner/Spinner";
+import formStyles from "./form.module.css";
+import styles from "./pages.module.css";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -58,50 +59,50 @@ function Register() {
     return <Spinner />;
   }
   return (
-    <div className="register">
+    <div className={styles.formPage}>
       <section className="heading">
         <h1>Register</h1>
-        <p>Please create a account</p>
       </section>
-      <section>
+      <section className={formStyles.formContainer}>
+        <p>Create a WishPad account</p>
         <form className={formStyles.form} onSubmit={onSubmit}>
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="name"
             name="name"
             value={name}
-            placeholder="Enter your name"
+            placeholder="Name *"
             onChange={onChange}
           />
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="email"
             name="email"
             value={email}
-            placeholder="Enter your email address"
+            placeholder="Email address *"
             onChange={onChange}
           />
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="password"
             name="password"
             value={password}
-            placeholder="Enter your password"
+            placeholder="Password *"
             onChange={onChange}
           />
           <input
             type="text"
-            className="form-control"
+            className={formStyles.control}
             id="password2"
             name="password2"
             value={password2}
-            placeholder="Enter your password2"
+            placeholder="Verify password *"
             onChange={onChange}
           />
-          <button type="submit">Submit</button>
+          <input className={formStyles.btn} type="submit" />
         </form>
       </section>
     </div>
