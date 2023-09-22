@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./ThemeSwitcher.module.css";
 import useLocalStorage from "../../Hooks/useLocalStorage";
+import { MoonIcon, SunIcon, SwatchIcon } from "@heroicons/react/24/solid";
 
 function ThemeSwitcher() {
   const [hue, setHue] = useLocalStorage("react-todo.color", "240");
@@ -59,21 +60,34 @@ function ThemeSwitcher() {
           {/* heroicons! */}
           <button
             onClick={handleThemeBtnClick}
-            className="btn"
+            className="btn tooltip"
             aria-label={`change string to ${theme === "light"}  mode`}
             role="switch"
             aria-checked="true"
           >
-            {theme === "light" ? "moon" : "sun"}
+            {theme === "light" ? (
+              <>
+                {" "}
+                <span className="tooltiptext">Switch to dark mode</span>
+                <MoonIcon height={26} />
+              </>
+            ) : (
+              <>
+                {" "}
+                <span className="tooltiptext">Switch to light mode</span>
+                <SunIcon height={26} />
+              </>
+            )}
           </button>{" "}
           <button
-            className="btn"
+            className="btn tooltip"
             aria-label={"Enable color picking mode"}
             role="switch"
             onClick={() => setIsColorPicking(true)}
             aria-checked="true"
           >
-            swatch
+            <span className="tooltiptext">Pick your colour</span>
+            <SwatchIcon height={26} />
           </button>
         </div>
       )}
