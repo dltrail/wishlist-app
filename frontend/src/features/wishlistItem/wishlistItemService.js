@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://wishlist-app-backend-q64vlczjv-dltrail.vercel.app/api/wishlist/";
+const API_URL = "https://wishlist-app-backend.vercel.app/api/wishlist/";
 
 const createWishlistItem = async (wishlistItemData, token) => {
   const config = {
