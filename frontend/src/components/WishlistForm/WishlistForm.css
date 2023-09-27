@@ -1,0 +1,5 @@
+.wishlist.form_container {
+  background-color: #fff;
+  border: 1px solid hsl(var(--accent));
+  padding: 25px 30px 45px;
+}

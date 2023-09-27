@@ -61,7 +61,7 @@ function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <h1>Welcome back, {user && user.name}!</h1>
+      <p>Welcome back, {user && user.name}!</p>
       <section className={styles.content}>
         {isLoading && <Spinner />}
         {wishlistItems.length > 0 ? (
@@ -75,17 +75,8 @@ function Dashboard() {
             <p>You have no wishlist items</p>
           </div>
         )}
-        {/* {isMobile && (
-          <button onClick={() => setShowForm(!showForm)}>
-            {showForm ? " Close" : "Open"}
-          </button>
-        )} */}
 
         <WishlistForm />
-
-        {/* <div className={`${showForm ? styles.show : styles.hide}`}>
-          <WishlistForm />
-        </div> */}
       </section>
     </div>
   );

@@ -4,24 +4,24 @@ import {
   deleteWishlistItem,
   editWishlistItem,
 } from "../../features/wishlistItem/wishlistItemSlice";
-import styles from "./WishlistItem.module.css";
+
+import "./WishlistItem.css";
 import dayjs from "dayjs";
 
 function WishListItem({ item }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.wishlistItem}>
-      <p className={styles.title}>{item.text}</p>
-      <p className={styles.url}>
+    <div className="wishlist-item">
+      <p className="wishlist-item__title">{item.text}</p>
+      <p className="wishlist-item__url">
         Web Link: <a href={item.url}>{item.url}</a>
       </p>
-      <span className={styles.datePost}>
-        {/* {new Date(item.createdAt).toLocaleString("en-US")} */}
-        {dayjs(item.createdAt?.toString()).format("DD-MM-YYYY | HH:mm A")}
+      <span className="wishlist-item__datePost">
+        {dayjs(item.createdAt?.toString()).format("DD/MM/YYYY")}
       </span>
       <button
-        className={styles.btn}
+        className="btn wishlist-item__delete"
         onClick={() => dispatch(deleteWishlistItem(item._id))}
       >
         x
