@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://wishlist-app-backend-q64vlczjv-dltrail.vercel.app/api/users/";
+const API_URL = "https://wishlist-app-backend.vercel.app/api/users/";
 
 // Register user
 const register = async (userData) => {
