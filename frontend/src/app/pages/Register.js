@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner/Spinner";
-import formStyles from "./form.module.css";
-import styles from "./pages.module.css";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -59,16 +57,16 @@ function Register() {
     return <Spinner />;
   }
   return (
-    <div className={styles.formPage}>
+    <div className="page-container">
       <section className="heading">
         <h1>Register</h1>
       </section>
-      <section className={formStyles.formContainer}>
+      <section className="register form_container">
         <p>Create a WishPad account</p>
-        <form className={formStyles.form} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="name"
             name="name"
             value={name}
@@ -77,7 +75,7 @@ function Register() {
           />
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="email"
             name="email"
             value={email}
@@ -86,7 +84,7 @@ function Register() {
           />
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="password"
             name="password"
             value={password}
@@ -95,14 +93,16 @@ function Register() {
           />
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="password2"
             name="password2"
             value={password2}
             placeholder="Verify password *"
             onChange={onChange}
           />
-          <input className={formStyles.btn} type="submit" />
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </form>
       </section>
     </div>
