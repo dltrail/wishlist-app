@@ -3,9 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../../features/auth/authSlice";
-import Spinner from "../../components/Spinner/Spinner";
-import formStyles from "./form.module.css";
-import styles from "./pages.module.css";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -51,16 +48,14 @@ function Login() {
   };
 
   return (
-    <div className={styles.formPage}>
-      <section className="heading">
-        <h1>Login</h1>
-      </section>
-      <section className={formStyles.formContainer}>
+    <div className="page-container">
+      <h1>Login</h1>
+      <section className="login form_container">
         <p>Sign in to WishPad</p>
-        <form className={formStyles.form} onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="email"
             name="email"
             value={email}
@@ -70,14 +65,16 @@ function Login() {
 
           <input
             type="text"
-            className={formStyles.control}
+            className="form_container__control"
             id="password"
             name="password"
             value={password}
             placeholder="Password *"
             onChange={onChange}
           />
-          <input className={formStyles.btn} type="submit" />
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </form>
       </section>
     </div>
