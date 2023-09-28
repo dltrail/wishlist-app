@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { login, logout, reset } from "../../features/auth/authSlice";
 import styles from "./Header.module.scss";
+import "./Header.css";
 
 function Header() {
   const navigate = useNavigate();
@@ -20,11 +21,8 @@ function Header() {
       <ul className={styles.navigation}>
         {user ? (
           <>
-            {/* <li>
-              <Link to="/">Dashboard</Link>
-            </li> */}
             <li>
-              <button className="btn" onClick={onLogout}>
+              <button className="logout" onClick={onLogout}>
                 Logout
               </button>
             </li>

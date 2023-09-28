@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createWishlistItem } from "../../features/wishlistItem/wishlistItemSlice";
-import styles from "./WishlistForm.module.css";
+
+import "./WishlistForm.css";
 
 function WishlistForm() {
   const dispatch = useDispatch();
@@ -32,28 +33,28 @@ function WishlistForm() {
   };
 
   return (
-    <section className={styles.form}>
+    <section className="wishlist form_container">
       <p>Add a new item</p>
       <form onSubmit={onSubmit}>
         <input
           type="text"
-          className="form-control"
+          className="form_container__control"
           id="text"
           name="text"
           value={text}
-          placeholder="Enter your text"
+          placeholder="Text"
           onChange={onChange}
         />
         <input
           type="text"
-          className="form-control"
+          className="form_container__control"
           id="url"
           name="url"
           value={url}
-          placeholder="Enter your url"
+          placeholder="Url"
           onChange={onChange}
         />
-        <button className={styles.btn} type="submit">
+        <button className="btn" type="submit">
           Submit
         </button>
       </form>

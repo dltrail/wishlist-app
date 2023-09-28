@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://wishlist-app-backend-q64vlczjv-dltrail.vercel.app/api",
+  "proxy": "https://wishlist-app-ten.vercel.app",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",

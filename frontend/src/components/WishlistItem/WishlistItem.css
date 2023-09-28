@@ -1,5 +1,5 @@
-.wishlistItem {
-  border: 1px solid #cccbcb;
+.wishlist-item {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   width: 289px;
@@ -9,8 +9,14 @@
   text-transform: uppercase;
   word-wrap: break-word;
 }
-.url {
-  font-size: 10px;
+
+.wishlist-item__title {
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+.wishlist-item__url {
+  font-size: 12px;
   font-weight: bold;
   color: #888;
   & > a {
@@ -22,22 +28,17 @@
   }
 }
 
-.btn {
+.wishlist-item__delete {
   position: absolute;
-  background-color: transparent;
-  background-color: red;
-  font-weight: bold;
-  border: 0;
   top: 4px;
-  right: 4px;
-  color: white;
-  font-size: 14px;
+  right: 8px;
+  padding: 5px !important;
 }
 
-.datePost {
+.wishlist-item__datePost {
   position: absolute;
-  right: 4px;
-  bottom: 4px;
-
-  font-size: 10px;
+  right: 6px;
+  bottom: 6px;
+  font-size: 11px;
+  color: hsl(var(--accent));
 }

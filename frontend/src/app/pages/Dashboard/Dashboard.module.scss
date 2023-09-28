@@ -16,6 +16,10 @@
   }
 }
 
+p {
+  font-size: 20px;
+}
+
 .content {
   display: flex;
   flex-direction: column-reverse;
@@ -27,10 +31,18 @@
 
   @media screen and (min-width: 1200px) {
     flex-direction: row;
-    max-width: 1200px;
-    margin: 0 auto;
+
     align-items: start;
   }
+}
+
+
+.dashboard {
+  @media screen and (min-width: 1200px) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
 }
 
 h1 {
