@@ -57,7 +57,6 @@ function ThemeSwitcher() {
         </>
       ) : (
         <div className={styles.btns}>
-          {/* heroicons! */}
           <button
             onClick={handleThemeBtnClick}
             className="btn tooltip"
@@ -69,13 +68,13 @@ function ThemeSwitcher() {
               <>
                 {" "}
                 <span className="tooltiptext">Switch to dark mode</span>
-                <MoonIcon height={26} />
+                <MoonIcon height={20} />
               </>
             ) : (
               <>
                 {" "}
                 <span className="tooltiptext">Switch to light mode</span>
-                <SunIcon height={26} />
+                <SunIcon height={20} />
               </>
             )}
           </button>{" "}
@@ -87,7 +86,7 @@ function ThemeSwitcher() {
             aria-checked="true"
           >
             <span className="tooltiptext">Pick your colour</span>
-            <SwatchIcon height={26} />
+            <SwatchIcon height={20} />
           </button>
         </div>
       )}
